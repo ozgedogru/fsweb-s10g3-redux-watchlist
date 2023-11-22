@@ -1,10 +1,10 @@
 import { movies } from "../movies";
-import { NEXT_MOVIE, PREV_MOVIE } from "../actions/actions";
+import { NEXT_MOVIE, PREV_MOVIE, ADD_FAV, DEL_FAV } from "../actions/actions";
 
 const initialState = {
   movies: movies,
-  currentMovie: 0,
-  favorites: [],
+  currentIndex: 0,
+  favMovies: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,13 +12,24 @@ const reducer = (state = initialState, action) => {
     case NEXT_MOVIE:
       return {
         ...state,
-        currentMovie: state.currentMovie + 1,
+        currentIndex: state.currentIndex + 1,
       };
 
     case PREV_MOVIE:
       return {
         ...state,
-        currentMovie: state.currentMovie - 1,
+        currentIndex: state.currentIndex - 1,
+      };
+    case ADD_FAV:
+      return {
+        ...state,
+        favMovies: [...state.favMovies, action.payload],
+      };
+
+    case DEL_FAV:
+      return {
+        ...state,
+        favMovies: state.favMovies.filter((m) => m.id !== action.payload),
       };
 
     default:
