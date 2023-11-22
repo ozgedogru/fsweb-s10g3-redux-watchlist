@@ -1,26 +1,28 @@
 import { movies } from "../movies";
-import { NEXT_MOVIE } from "../actions/actions";
+import { NEXT_MOVIE, PREV_MOVIE } from "../actions/actions";
 
 const initialState = {
   movies: movies,
-  currentMovieIndex: 0,
+  currentMovie: 0,
   favorites: [],
 };
-
-console.log(movies);
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case NEXT_MOVIE:
       return {
         ...state,
-        currentMovieIndex: state.currentMovieIndex + 1,
+        currentMovie: state.currentMovie + 1,
       };
-      break;
+
+    case PREV_MOVIE:
+      return {
+        ...state,
+        currentMovie: state.currentMovie - 1,
+      };
 
     default:
       return state;
-      break;
   }
 };
 

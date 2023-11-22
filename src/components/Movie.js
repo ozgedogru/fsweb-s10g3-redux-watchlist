@@ -2,10 +2,8 @@ import { useSelector } from "react-redux";
 
 export default function Movie(props) {
   const movies = useSelector((state) => state.movies);
-  const currentMovieIndex = useSelector((state) => state.currentMovieIndex);
-  const movie = movies[currentMovieIndex];
-
-  console.log(movie);
+  const currentMovie = useSelector((state) => state.currentMovie);
+  const movie = movies[currentMovie];
 
   return (
     <div className="flex bg-white shadow-lg items-start">
