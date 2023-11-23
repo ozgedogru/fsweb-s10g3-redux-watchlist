@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 export default function Movie(props) {
-  const movies = useSelector((state) => state.movies);
-  const currentIndex = useSelector((state) => state.currentIndex);
+  const movies = useSelector((store) => store.movies);
+  const currentIndex = useSelector((store) => store.currentIndex);
   const movie = movies[currentIndex];
 
   return (

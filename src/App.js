@@ -6,7 +6,7 @@ import { addFavorite, nextMovie, prevMovie } from "./actions/actions";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { movies, currentIndex, favMovies } = useSelector((state) => state);
+  const { movies, currentIndex, favMovies } = useSelector((store) => store);
 
   console.log(favMovies);
 
